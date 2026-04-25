@@ -15,7 +15,6 @@ st.markdown("---")
 
 model = joblib.load("models/model.pkl")
 
-# Sidebar
 st.sidebar.header("📊 Dados da casa")
 
 medinc = st.sidebar.slider("💵 Renda média da região ($)", 0.0, 15.0, 5.0)
@@ -27,10 +26,9 @@ aveoccup = st.sidebar.slider("🏢 Pessoas por residência", 1.0, 10.0, 3.0)
 latitude = st.sidebar.slider("🌍 Latitude", 32.0, 42.0, 37.0)
 longitude = st.sidebar.slider("🌍 Longitude", -125.0, -114.0, -120.0)
 
-# Layout em colunas
 col1, col2 = st.columns(2)
 
-# Mostra inputs
+# Inputs
 with col1:
     st.subheader("📥 Dados inseridos")
     input_data = pd.DataFrame({
