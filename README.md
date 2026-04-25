@@ -59,7 +59,7 @@ Treinamento centralizado em [`model.train_models`](src/model.py), no arquivo [sr
 ### 1) Clonar o repositório
 
 ```bash
-git clone https://github.com/RenanPBRBS/house-price-ml.git
+git clone https://github.com/RenanPBRBS/house-price-ml
 cd house-price-ml
 ```
 
