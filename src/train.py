@@ -51,18 +51,16 @@ def evaluate_models(models, X_test, y_test):
 
         results[name] = {
             "MAE": mae,
-            "MSE": mse,
             "RMSE": rmse,
             "R2": r2
         }
 
-        print(f"\n🔍 {name}")
-        print(f"MAE: {mae:.4f}")
-        print(f"MSE: {mse:.4f}")
-        print(f"RMSE: {rmse:.4f}")
-        print(f"R2: {r2:.4f}")
+    df_results = pd.DataFrame(results).T
 
-    return results
+    print("\n📊 Comparação de modelos:")
+    print(df_results)
+
+    return df_results
 
 
 def plot_results(y_test, y_pred):
@@ -78,32 +76,39 @@ def save_model(model):
     joblib.dump(model, "models/model.pkl")
     print("\n✅ Modelo salvo em models/model.pkl")
 
+def plot_feature_importance(model, X):
+    if hasattr(model, "feature_importances_"):
+        import matplotlib.pyplot as plt
+
+        importances = model.feature_importances_
+        features = X.columns
+
+        plt.figure()
+        plt.barh(features, importances)
+        plt.xlabel("Importância")
+        plt.title("Feature Importance (Random Forest)")
+        plt.show()
+
 
 def main():
-    # 1. Carregar dados
     df = load_data()
 
-    # 2. Explorar dados
     explore_data(df)
 
-    # 3. Preparar dados
     X_train, X_test, y_train, y_test = prepare_data(df)
 
-    # 4. Treinar modelos
     models = train_models(X_train, y_train)
 
-    # 5. Avaliar modelos
     evaluate_models(models, X_test, y_test)
 
-    # 6. Escolher melhor modelo (Random Forest)
     best_model = models["Random Forest"]
 
-    # 7. Plot
     y_pred = best_model.predict(X_test)
     plot_results(y_test, y_pred)
 
-    # 8. Salvar modelo
     save_model(best_model)
+
+    plot_feature_importance(best_model, X_train)
 
 
 if __name__ == "__main__":
