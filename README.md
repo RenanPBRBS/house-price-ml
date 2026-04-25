@@ -1,106 +1,140 @@
-# 🏠 House Price Prediction - Machine Learning Project
+# 🏠 House Price Prediction
 
-Projeto de Machine Learning para previsão de preços de casas utilizando dados reais e modelos preditivos.
+Projeto de Machine Learning para previsão de preços de casas com base no dataset California Housing.
 
----
+## 📌 Sobre o projeto
 
-## 🚀 Demonstração
+Este projeto implementa um pipeline completo de ML com:
 
-Aplicação interativa desenvolvida com **Streamlit** para prever o preço de casas com base em características fornecidas pelo usuário.
+- análise exploratória dos dados;
+- treinamento de modelos;
+- avaliação com métricas de regressão;
+- persistência de modelo treinado;
+- aplicação web interativa com Streamlit.
 
----
+## 🚀 Tecnologias
 
-## 🧠 Tecnologias utilizadas
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- Streamlit
+- Joblib
 
-- **Python**
-- **Pandas**
-- **NumPy**
-- **Scikit-learn**
-- **Matplotlib**
-- **Streamlit**
-- **Joblib**
-
----
-
-## 📊 Objetivo do projeto
-
-Construir um pipeline completo de Machine Learning que inclui:
-
-- Análise exploratória de dados
-- Treinamento de modelos preditivos
-- Avaliação de desempenho
-- Persistência do modelo
-- Interface interativa para previsões
-
----
-
-## 🤖 Modelos utilizados
+## 🤖 Modelos treinados
 
 - Regressão Linear
 - Random Forest Regressor
 
----
+Treinamento centralizado em [`model.train_models`](src/model.py), no arquivo [src/model.py](src/model.py).
 
 ## 📈 Métricas avaliadas
 
-- **MAE** (Mean Absolute Error)
-- **MSE** (Mean Squared Error)
-- **RMSE** (Root Mean Squared Error)
-- **R² Score**
+- MAE (Mean Absolute Error)
+- MSE (Mean Squared Error)
+- RMSE (Root Mean Squared Error)
+- $R^2$ Score
+
+## 📁 Estrutura do projeto
+
+```text
+.
+├── .gitignore
+├── README.md
+├── requirements.txt
+├── data/
+├── models/
+│   └── model.pkl
+├── notebook/
+└── src/
+    ├── app.py
+    ├── model.py
+    ├── predict.py
+    └── train.py
+```
+
+## ⚙️ Como executar
+
+### 1) Clonar o repositório
+
+```bash
+git clone https://github.com/RenanPBRBS/house-price-ml.git
+cd house-price-ml
+```
+
+### 2) Criar e ativar ambiente virtual
+
+```bash
+python -m venv venv
+```
+
+**Windows (PowerShell):**
+```bash
+venv\Scripts\Activate.ps1
+```
+
+**Windows (CMD):**
+```bash
+venv\Scripts\activate
+```
+
+**Linux/macOS:**
+```bash
+source venv/bin/activate
+```
+
+### 3) Instalar dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+Arquivo de dependências: [requirements.txt](requirements.txt)
+
+### 4) Treinar o modelo
+
+```bash
+python src/train.py
+```
+
+Script: [src/train.py](src/train.py)
+
+### 5) Executar a aplicação web
+
+```bash
+streamlit run src/app.py
+```
+
+Script: [src/app.py](src/app.py)
+
+### 6) Fazer previsão via script (opcional)
+
+```bash
+python src/predict.py
+```
+
+Script: [src/predict.py](src/predict.py)
+
+## 💻 Exemplo de uso
+
+1. Execute o app com Streamlit.
+2. Preencha os campos de entrada.
+3. Clique em **"🔮 Prever preço"**.
+4. O sistema exibirá o valor estimado.
+
+## 🔥 Diferenciais
+
+- Pipeline completo de Machine Learning
+- Comparação entre múltiplos modelos
+- Interface interativa com Streamlit
+- Código modular e reutilizável
+- Salvamento e carregamento de modelo treinado
+
+## 👨‍💻 Autor
+
+Renan Candim
 
 ---
 
-## ⚙️ Como executar o projeto
-
-### 1️⃣ Clonar o repositório
-
-```bash
-git clone [https://github.com/RenanPBRBS/house-price-ml.git](https://github.com/RenanPBRBS/house-price-ml.git)
-cd house-price-ml
-
-### 2️⃣ Criar e ativar o ambiente virtual
-
-# Criar o ambiente virtual
-python -m venv venv
-
-# Ativar no Windows:
-venv\Scripts\activate
-
-# Ativar no Linux/Mac:
-source venv/bin/activate
-
-### 3️⃣ Instalar dependências
-
-pip install -r requirements.txt
-
-### 4️⃣ Treinar o modelo
-
-python src/train.py
-
-### 5️⃣ Rodar aplicação web (Streamlit)
-
-streamlit run src/app.py
-
-## 💻 Exemplo de uso
-Preencha os dados no app e clique em:
-
-👉 "Prever preço"
-
-O modelo retornará uma estimativa baseada nos dados inseridos.
-
-## 📸 Preview
-(adicione aqui um print do Streamlit depois)
-
-## 🔥 Diferenciais do projeto
-Pipeline completo de Machine Learning
-
-Comparação entre múltiplos modelos
-
-Interface interativa com Streamlit
-
-Código organizado em módulos
-
-Salvamento e reutilização do modelo
-
-## 👨‍💻 Autor
-Renan Candim
+Se este projeto te ajudou, considere deixar uma ⭐ no repositório.
