@@ -18,14 +18,14 @@ model = joblib.load("models/model.pkl")
 # Sidebar
 st.sidebar.header("📊 Dados da casa")
 
-medinc = st.sidebar.slider("Renda média (MedInc)", 0.0, 15.0, 5.0)
-houseage = st.sidebar.slider("Idade da casa", 1.0, 50.0, 25.0)
-averooms = st.sidebar.slider("Média de quartos", 1.0, 10.0, 5.0)
-avebedrms = st.sidebar.slider("Quartos de dormir", 0.5, 5.0, 1.0)
-population = st.sidebar.slider("População", 0.0, 5000.0, 1000.0)
-aveoccup = st.sidebar.slider("Ocupação média", 1.0, 10.0, 3.0)
-latitude = st.sidebar.slider("Latitude", 32.0, 42.0, 37.0)
-longitude = st.sidebar.slider("Longitude", -125.0, -114.0, -120.0)
+medinc = st.sidebar.slider("💵 Renda média da região ($)", 0.0, 15.0, 5.0)
+houseage = st.sidebar.slider("🏠 Idade média das casas (anos)", 1.0, 50.0, 25.0)
+averooms = st.sidebar.slider("🛏️ Média de cômodos por casa", 1.0, 10.0, 5.0)
+avebedrms = st.sidebar.slider("🛌 Média de quartos de dormir", 0.5, 5.0, 1.0)
+population = st.sidebar.slider("👥 População da região", 0.0, 5000.0, 1000.0)
+aveoccup = st.sidebar.slider("🏢 Pessoas por residência", 1.0, 10.0, 3.0)
+latitude = st.sidebar.slider("🌍 Latitude", 32.0, 42.0, 37.0)
+longitude = st.sidebar.slider("🌍 Longitude", -125.0, -114.0, -120.0)
 
 # Layout em colunas
 col1, col2 = st.columns(2)
@@ -52,15 +52,17 @@ with col2:
     if st.button("🔮 Prever preço"):
         prediction = model.predict(input_data)[0]
 
-        st.success(f"💰 Preço estimado: {prediction:.2f}")
+        price_usd = prediction * 100000
+
+        st.success(f"💰 Preço estimado: ${price_usd:,.2f}")
 
         # Feedback visual
-        if prediction > 3:
-            st.markdown("🏡 Região de alto valor")
-        elif prediction > 1.5:
+        if price_usd > 300000:
+            st.markdown("🏡 Região de alto padrão")
+        elif price_usd > 150000:
             st.markdown("🏠 Região de valor médio")
         else:
-            st.markdown("🏚️ Região de baixo valor")
+            st.markdown("🏚️ Região de baixo custo")
 
         st.balloons()
 
