@@ -100,23 +100,17 @@ Arquivo de dependências: [requirements.txt](requirements.txt)
 python src/train.py
 ```
 
-Script: [src/train.py](src/train.py)
-
 ### 5) Executar a aplicação web
 
 ```bash
 streamlit run src/app.py
 ```
 
-Script: [src/app.py](src/app.py)
-
 ### 6) Fazer previsão via script (opcional)
 
 ```bash
 python src/predict.py
 ```
-
-Script: [src/predict.py](src/predict.py)
 
 ## 💻 Exemplo de uso
 
