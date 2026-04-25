@@ -2,6 +2,8 @@
 
 Projeto de Machine Learning para previsão de preços de casas com base no dataset California Housing.
 
+![Prévia do projeto de previsão de preços de casas](images/ml_house_predict.png)
+
 ## 📌 Sobre o projeto
 
 Este projeto implementa um pipeline completo de ML com:
